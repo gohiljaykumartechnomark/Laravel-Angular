@@ -1,1 +1,31 @@
 <p>signup works!</p>
+<div class="mt-4 col-8 offset-2">
+    <div class="card">
+        <div class="card-header">Register Here</div>
+        <div class="card-body">
+            <form #RegisterForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Name" id="exampleInputName1" aria-describedby="nameHelp" [(ngModel)]="form.name" required>
+                    <div class="alert alert-danger" [hidden]="!error.name">{{ error.name }}</div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" name="email" class="form-control" placeholder="Email address" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="form.email" required>
+                    <div class="alert alert-danger" [hidden]="!error.email">{{ error.email }}</div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Password" id="exampleInputPassword1" [(ngModel)]="form.password" required>
+                    <div class="alert alert-danger" [hidden]="!error.password">{{ error.password }}</div>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputConfirmPassword1">Confirm Password</label>
+                  <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" id="exampleInputPassword1" [(ngModel)]="form.password_confirmation" required>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!RegisterForm.valid">SignUp</button>
+                <a routerLink="/login" class="btn btn-primary float-right">SignIn</a>
+            </form>
+        </div>
+    </div>
+</div>
