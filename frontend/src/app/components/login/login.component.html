@@ -3,6 +3,7 @@
         <div class="card-header">Login Here</div>
         <div class="card-body">
             <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+              <div class="alert alert-danger" [hidden]="!error">{{ error }}</div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
                   <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="form.email" required>
@@ -13,6 +14,7 @@
                   <input type="password" name="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="form.password" required>
                 </div>
                 <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">SignIn</button>
+                <a routerLink="/signup" class="btn btn-primary float-right">SignUp</a>
             </form>
         </div>
     </div>
